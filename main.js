@@ -9,9 +9,16 @@ let contador = 0;
 
 while(contador <listaDeTeclas.length){
 
-    listaDeTeclas[contador].onclick = function(){
-        tocaSom('#som_tecla_splash')
-    }
+    const tecla = listaDeTeclas[contador];
+    const instrumentos = tecla.classlist[1];
+    //template atring
+    const idAudio = `#som_${instrumentos}`;
+
+    console.log(idAudio);
+
+    tecla.onclick = function(){
+        tocaSom(idAudio)
+    };
     contador = contador + 1;
 
     console.log(contador);
