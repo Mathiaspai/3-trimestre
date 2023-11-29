@@ -5,21 +5,33 @@ function tocaSom(idElementoaudio){
 const listaDeTeclas = document.querySelectorAll('.tecla');
 
 //01-11-2023- lista numerada
-let contador = 0;
+for (let contador = 0; contador <listaDeTeclas.length; contador++){
 
-while(contador <listaDeTeclas.length){
+}
+
+
 
     const tecla = listaDeTeclas[contador];
     const instrumentos = tecla.classlist[1];
-    //template atring
-    const idAudio = `#som_${instrumentos}`;
+   
+    const idAudio = `#som_${instrumentos}`; //template atring
 
     console.log(idAudio);
 
     tecla.onclick = function(){
         tocaSom(idAudio)
-    };
-    contador = contador + 1;
+    }
 
-    console.log(contador);
-}
+    tecla.onkeydow = function () {
+        console.log(evento.code == 'space')
+        if  (evento.code =='space'){
+            tecla.classList.add('ativa');
+        }
+        
+
+    }
+     tecla.onkeyup = function (){
+        tecla.classList.remove('ativa');  
+     }   
+     
+          
